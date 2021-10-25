@@ -1,6 +1,7 @@
 using eBook.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -58,14 +59,26 @@ namespace eBook
 
             app.UseAuthentication();
             app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
+            // MIDDLEWARE
+            app.Use(async (context, next) =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapRazorPages();
+                await context.Response.WriteAsync("Hello, World! First ");
+                await next.Invoke();
+                // Do logging or other work that doesn't write to the Response.
             });
+            app.Use(async (context, next) =>
+            {
+                await context.Response.WriteAsync("Hello, World! second");
+                await next();
+                // Do logging or other work that doesn't write to the Response.
+            });
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllerRoute(
+            //        name: "default",
+            //        pattern: "{controller=Home}/{action=Index}/{id?}");
+            //    endpoints.MapRazorPages();
+            //});
         }
     }
 }
