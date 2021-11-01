@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using eBook.Models;
+using eBook.Repository;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,19 +10,24 @@ namespace eBook.Controllers
 {
     public class BookController : Controller
     {
-        public string GetAllBooks()
+        private readonly BookRepository _bookRepository = null;
+
+        public BookController()
         {
-            return "All books";
+            _bookRepository = new BookRepository();
         }
 
-        public string GetBook(int id)
+        public List<BookModel> GetAllBooks()
         {
-            return $"book with id = {id}";
+            return _bookRepository.GetAllBooks();
         }
-
-        public string SearchBooks(string bookName, string authorName)
+        public BookModel GetBook(int id)
         {
-            return $"Book with name = {bookName} & Author = {authorName}";
+            return _bookRepository.GetBookById(id);
+        }
+        public List<BookModel> SearchBooks(string bookName, string authorName)
+        {
+            return _bookRepository.SearchBook(bookName, authorName);
         }
     }
 }
