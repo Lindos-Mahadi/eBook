@@ -17,9 +17,10 @@ namespace eBook.Controllers
             _bookRepository = new BookRepository();
         }
 
-        public List<BookModel> GetAllBooks()
+        public ActionResult GetAllBooks()
         {
-            return _bookRepository.GetAllBooks();
+            var allData = _bookRepository.GetAllBooks();
+            return View(allData);
         }
         public BookModel GetBook(int id)
         {
