@@ -62,29 +62,11 @@ namespace eBook
 
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapControllerRoute(
-                //name: "default",
-                //pattern: "{controller=Home}/{action=Index}/{id?}");
-                //endpoints.MapRazorPages();
-                endpoints.MapGet("/", async context =>
-                {
-                    if (env.IsDevelopment())
-                    {
-                        await context.Response.WriteAsync("Hello from dev");
-                    }
-                    else if (env.IsProduction())
-                    {
-                        await context.Response.WriteAsync("Hello from production");
-                    }
-                    else if (env.IsStaging())
-                    {
-                        await context.Response.WriteAsync("Hello from staging");
-                    }
-                    else
-                    {
-                        await context.Response.WriteAsync(env.EnvironmentName);
-                    }
-                });
+                endpoints.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
+
             });
         }
     }
