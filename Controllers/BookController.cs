@@ -22,7 +22,7 @@ namespace eBook.Controllers
             var allData = _bookRepository.GetAllBooks();
             return View(allData);
         }
-        public ActionResult BookDetails(int id)
+        public ActionResult BookDetails(int id, string nameOfBook)
         {
             var bookDetails = _bookRepository.GetBookById(id);
             return View(bookDetails);
