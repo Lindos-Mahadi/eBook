@@ -17,11 +17,13 @@ namespace eBook.Controllers
             _bookRepository = new BookRepository();
         }
 
+        [Route("all-book")]
         public ActionResult GetAllBooks()
         {
             var allData = _bookRepository.GetAllBooks();
             return View(allData);
         }
+        [Route("book-details/{id}")]
         public ActionResult BookDetails(int id, string nameOfBook)
         {
             var bookDetails = _bookRepository.GetBookById(id);
