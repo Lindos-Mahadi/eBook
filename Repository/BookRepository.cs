@@ -27,18 +27,18 @@ namespace eBook.Repository
         {
             return new List<BookModel>()
             {
-                new BookModel(){Id =1, Title="MVC", Author = "lindos" , Description="This is the description for MVC"},
-                new BookModel(){Id =2, Title="Dot Net Core", Author = "lindos" , Description="This is the description for DotNet Core"},
-                new BookModel(){Id =3, Title="C#", Author = "lindos" , Description="This is the description for C#"},
-                new BookModel(){Id =4, Title="Java", Author = "lindos" , Description="This is the description for Java"},
-                new BookModel(){Id =5, Title="Php", Author = "lindos", Description="This is the description for PHP"},
-                new BookModel(){Id =6, Title="Azure", Author = "lindos" , Description="This is the description for Azure"},
-                new BookModel(){Id =7, Title="Angular", Author = "lindos" , Description="This is the description for Angular"},
-                new BookModel(){Id =8, Title="F#", Author = "lindos" , Description="This is the description for F#"},
-                new BookModel(){Id =9, Title="React", Author = "lindos" , Description="This is the description for React"},
-                new BookModel(){Id =10, Title="Python", Author = "lindos", Description="This is the description for Python"},
-                new BookModel(){Id =11, Title="DevOps", Author = "lindos", Description="This is the description for DevOps"},
-                new BookModel(){Id =12, Title="Networking", Author = "lindos", Description="This is the description for Networking"},
+                new BookModel(){Id =1, Title="MVC", Author = "lindos" , Description="This is the description for MVC", Category = "Programming", Language = "English", TotalPages = 134},
+                new BookModel(){Id =2, Title="Dot Net Core", Author = "lindos" , Description="This is the description for DotNet Core", Category = "Framework", Language = "Chinese", TotalPages = 567},
+                new BookModel(){Id =3, Title="C#", Author = "lindos" , Description="This is the description for C#", Category = "Developer", Language = "Hindi", TotalPages = 897},
+                new BookModel(){Id =4, Title="Java", Author = "lindos" , Description="This is the description for Java", Category = "Concept", Language = "English", TotalPages = 564},
+                new BookModel(){Id =5, Title="Php", Author = "lindos", Description="This is the description for PHP", Category = "Programming", Language = "English", TotalPages = 100},
+                new BookModel(){Id =6, Title="Azure", Author = "lindos" , Description="This is the description for Azure", Category = "DevOps", Language = "English", TotalPages = 800},
+                new BookModel(){Id =7, Title="Angular", Author = "lindos" , Description="This is the description for Angular", Category = "DevOps", Language = "English", TotalPages = 800},
+                new BookModel(){Id =8, Title="F#", Author = "lindos" , Description="This is the description for F#", Category = "Concept", Language = "English", TotalPages = 800},
+                new BookModel(){Id =9, Title="React", Author = "lindos" , Description="This is the description for React", Category = "DevOps", Language = "English", TotalPages = 800},
+                new BookModel(){Id =10, Title="Python", Author = "lindos", Description="This is the description for Python", Category = "Concept", Language = "English", TotalPages = 800},
+                new BookModel(){Id =11, Title="DevOps", Author = "lindos", Description="This is the description for DevOps", Category = "DevOps", Language = "English", TotalPages = 800},
+                new BookModel(){Id =12, Title="Networking", Author = "lindos", Description="This is the description for Networking", Category = "DevOps", Language = "English", TotalPages = 800},
             };
         }
     }

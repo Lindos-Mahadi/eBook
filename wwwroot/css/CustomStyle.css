@@ -5,4 +5,11 @@
 .home-body-book-section .card img{
     height:250px !important;
 }
-.home-body-book-section{}
+
+.book-details-section .carousel-inner img{
+    height:300px !important;
+}
+
+.book-details-section .card img {
+    height: 250px !important;
+}
