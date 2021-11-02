@@ -3,6 +3,6 @@
     background-color: #eee;
 }
 .home-body-book-section .card img{
-    height:300px;
+    height:250px !important;
 }
 .home-body-book-section{}
