@@ -438,4 +438,3 @@ F:\DotNetCore\eBook\obj\Debug\net5.0\ref\eBook.dll
 F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.pdb
 F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.genruntimeconfig.cache
 F:\DotNetCore\eBook\obj\Debug\net5.0\Razor\Views\Book\BookDetails.cshtml.g.cs
-F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.csproj.AssemblyReference.cache
