@@ -1,7 +1,8 @@
-﻿@model IEnumerable<eBook.Models.BookModel>
+﻿<!--------ALL MODELS BINDING DEPENDENCIES COMING FROM _VIEWIMPORTS.CSHTML------->
+@*@model IEnumerable<eBook.Models.BookModel>*@
 
 @{
-    ViewData["Title"] = "GetAllBooks";
+    ViewData["Title"] = "All Books";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,21 +11,21 @@
 
     @foreach (var book in Model)
     {
-<div class="col-md-3">
-    <div class="card mb-4 shadow-sm">
-        <img src="https://picsum.photos/seed/picsum/200/300" style="height:200px;" alt="" />
-        <div class="card-body">
-            <h3 class="card-title">@book.Title</h3>
-            <p class="card-text">@book.Description</p>
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                    <a href="/book/BookDetails/@book.Id" class="btn btn-sm btn-outline-secondary">View details</a>
+        <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+                <img src="https://picsum.photos/seed/picsum/200/300" style="height:200px;" alt="" />
+                <div class="card-body">
+                    <h3 class="card-title">@book.Title</h3>
+                    <p class="card-text">@book.Description</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="/book/BookDetails/@book.Id" class="btn btn-sm btn-outline-secondary">View details</a>
+                        </div>
+                        <small class="text-muted">@book.Author</small>
+                    </div>
                 </div>
-                <small class="text-muted">@book.Author</small>
             </div>
-        </div>
-    </div>
-</div>}
+        </div>}
 
 
 </div>

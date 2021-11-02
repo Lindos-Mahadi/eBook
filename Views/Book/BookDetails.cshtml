@@ -1,7 +1,10 @@
-﻿@using eBook.Models;
-@model BookModel
+﻿<!--------ALL MODELS BINDING DEPENDENCIES COMING FROM _VIEWIMPORTS.CSHTML------->
+@*@using eBook.Models;
+@model BookModel*@
+
 @{ 
-    Layout = "_Layout"; 
+    ViewData["Title"] = "Book Detail " + Model.Title;
+    Layout = "_Layout";
  }
 
 <div class="book-details-section">
