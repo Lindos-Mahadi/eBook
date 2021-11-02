@@ -2,5 +2,7 @@
     padding: 50px 25px;
     background-color: #eee;
 }
-.home-body-book-section{}
+.home-body-book-section .card img{
+    height:300px;
+}
 .home-body-book-section{}
