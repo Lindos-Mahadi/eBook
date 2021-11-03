@@ -15,6 +15,6 @@ namespace eBook.Data.DomainModals
         public string Language { get; set; }
         public int TotalPages { get; set; }
         public DateTime? CreatedOn { get; set; }
-        public DateTime? DeletedOn { get; set; }
+        public DateTime? UpdatedOn { get; set; }
     }
 }

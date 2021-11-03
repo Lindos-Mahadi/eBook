@@ -12,9 +12,9 @@ namespace eBook.Controllers
     {
         private readonly BookRepository _bookRepository = null;
 
-        public BookController()
+        public BookController(BookRepository bookRepository)
         {
-            _bookRepository = new BookRepository();
+            _bookRepository = bookRepository;
         }
 
         [Route("all-book")]
@@ -33,5 +33,16 @@ namespace eBook.Controllers
         {
             return _bookRepository.SearchBook(bookName, authorName);
         }
+        //[HttpGet]
+        //public ActionResult AddNewBook()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public ActionResult AddNewBook(BookModel bookModel)
+        //{
+        //    _bookRepository.AddNewBook(bookModel);
+        //    return View();
+        //}
     }
 }
