@@ -18,9 +18,10 @@ namespace eBook.Controllers
         }
 
         [Route("all-book")]
-        public ActionResult GetAllBooks()
+        public async Task<IActionResult> GetAllBooks()
         {
-            var allData = _bookRepository.GetAllBooks();
+            var allData = await _bookRepository.GetAllBooks();
+
             return View(allData);
         }
         [Route("book-details/{id}")]
