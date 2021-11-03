@@ -33,16 +33,16 @@ namespace eBook.Controllers
         {
             return _bookRepository.SearchBook(bookName, authorName);
         }
-        //[HttpGet]
-        //public ActionResult AddNewBook()
-        //{
-        //    return View();
-        //}
-        //[HttpPost]
-        //public ActionResult AddNewBook(BookModel bookModel)
-        //{
-        //    _bookRepository.AddNewBook(bookModel);
-        //    return View();
-        //}
+        [HttpGet]
+        public ActionResult AddNewBook()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddNewBook(BookModel bookModel)
+        {
+            _bookRepository.AddNewBook(bookModel);
+            return View();
+        }
     }
 }

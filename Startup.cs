@@ -40,7 +40,7 @@ namespace eBook
             //services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddControllersWithViews();
 
-            //services.AddScoped<BookRepository, BookRepository>();
+            services.AddScoped<BookRepository, BookRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
