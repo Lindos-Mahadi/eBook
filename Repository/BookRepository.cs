@@ -26,6 +26,8 @@ namespace eBook.Repository
                 CreatedOn = DateTime.UtcNow,
                 Description = model.Description,
                 Title = model.Title,
+                Language = model.Language,
+                //LanguageEnum = model.LanguageEnum,
                 MultiLanguage = model.MultiLanguage,    //tarnary operator
                 TotalPages = model.TotalPages.HasValue ? model.TotalPages.Value : 0,
                 UpdatedOn = DateTime.UtcNow

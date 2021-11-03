@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eBook.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -22,6 +23,9 @@ namespace eBook.Models
 
         [Required(ErrorMessage = "Please choose the languages of your book")]
         public List<string> MultiLanguage { get; set; }
+
+        [Required(ErrorMessage = "Please choose the language of your book")]
+        public LanguageEnum LanguageEnum { get; set; }
 
         [Display(Name = "Total pages of book")]
         public int? TotalPages { get; set; }
