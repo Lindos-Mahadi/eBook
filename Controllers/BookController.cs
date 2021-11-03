@@ -41,7 +41,11 @@ namespace eBook.Controllers
         [HttpPost]
         public ActionResult AddNewBook(BookModel bookModel)
         {
-            _bookRepository.AddNewBook(bookModel);
+            int id = _bookRepository.AddNewBook(bookModel);
+            if (id > 0)
+            {
+                return RedirectToAction(nameof(AddNewBook));
+            }
             return View();
         }
     }
