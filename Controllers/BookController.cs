@@ -38,11 +38,16 @@ namespace eBook.Controllers
         [HttpGet]
         public ActionResult AddNewBook(bool isSuccess = false, int bookId = 0 )
         {
-            ViewBag.Language = new List<string>() { "Hindi", "English", "Dutch" };
+            var model = new BookModel()
+            {
+                Language = "English"
+            };
+
+            ViewBag.Language = new SelectList(new List<string>() { "Hindi", "English", "Dutch" });
 
             ViewBag.IsSuccess = isSuccess;
             ViewBag.BookId = bookId;
-            return View();
+            return View(model);
         }
         [HttpPost]
         public async Task<IActionResult> AddNewBook(BookModel bookModel)
@@ -56,7 +61,7 @@ namespace eBook.Controllers
                 }
             }
 
-            ViewBag.Language = new List<string>() { "Hindi", "English", "Dutch" };
+            ViewBag.Language = new SelectList(new List<string>() { "Hindi", "English", "Dutch" });
 
             ModelState.AddModelError("", "This is my custom error message");
             ModelState.AddModelError("", "This is my second custom error message");

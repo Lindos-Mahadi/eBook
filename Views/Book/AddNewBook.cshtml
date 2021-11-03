@@ -2,8 +2,6 @@
 @{
     ViewData["Title"] = "Add New Book";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-    string selectedVal = "English"; 
 }
 
 <div class="container">
@@ -31,7 +29,7 @@
 
     <div class="form-group">
         <label asp-for="Language" class="control-label"></label>
-        <select asp-for="Language" class="form-control" asp-items="new SelectList(ViewBag.Language, selectedVal)">
+        <select asp-for="Language" class="form-control" asp-items="ViewBag.Language">
             <option value="">Please choose book language</option>
         </select>
         <span asp-validation-for="Language" class="text-danger"></span>
