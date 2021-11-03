@@ -38,7 +38,7 @@ namespace eBook.Controllers
         [HttpGet]
         public ActionResult AddNewBook(bool isSuccess = false, int bookId = 0 )
         {
-            ViewBag.Language = new SelectList(new List<string>() { "Hindi", "English", "Dutch" });
+            ViewBag.Language = new List<string>() { "Hindi", "English", "Dutch" };
 
             ViewBag.IsSuccess = isSuccess;
             ViewBag.BookId = bookId;
@@ -56,7 +56,7 @@ namespace eBook.Controllers
                 }
             }
 
-            ViewBag.Language = new SelectList(new List<string>() { "Hindi", "English", "Dutch" });
+            ViewBag.Language = new List<string>() { "Hindi", "English", "Dutch" };
 
             ModelState.AddModelError("", "This is my custom error message");
             ModelState.AddModelError("", "This is my second custom error message");
