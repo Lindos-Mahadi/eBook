@@ -25,9 +25,9 @@ namespace eBook.Controllers
             return View(allData);
         }
         [Route("book-details/{id}")]
-        public ActionResult BookDetails(int id, string nameOfBook)
+        public async Task<ActionResult> BookDetails(int id, string nameOfBook)
         {
-            var bookDetails = _bookRepository.GetBookById(id);
+            var bookDetails = await _bookRepository.GetBookById(id);
             return View(bookDetails);
         }
         public List<BookModel> SearchBooks(string bookName, string authorName)
