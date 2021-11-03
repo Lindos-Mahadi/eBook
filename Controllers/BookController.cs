@@ -38,16 +38,11 @@ namespace eBook.Controllers
         [HttpGet]
         public ActionResult AddNewBook(bool isSuccess = false, int bookId = 0 )
         {
-            var model = new BookModel()
-            {
-                Language = "English"
-            };
-
             ViewBag.Language = new SelectList(new List<string>() { "Hindi", "English", "Dutch" });
 
             ViewBag.IsSuccess = isSuccess;
             ViewBag.BookId = bookId;
-            return View(model);
+            return View();
         }
         [HttpPost]
         public async Task<IActionResult> AddNewBook(BookModel bookModel)
