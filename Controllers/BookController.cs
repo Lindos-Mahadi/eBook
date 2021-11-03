@@ -34,9 +34,10 @@ namespace eBook.Controllers
             return _bookRepository.SearchBook(bookName, authorName);
         }
         [HttpGet]
-        public ActionResult AddNewBook(bool isSuccess = false)
+        public ActionResult AddNewBook(bool isSuccess = false, int bookId = 0 )
         {
             ViewBag.IsSuccess = isSuccess;
+            ViewBag.BookId = bookId;
             return View();
         }
         [HttpPost]
@@ -45,7 +46,7 @@ namespace eBook.Controllers
             int id = _bookRepository.AddNewBook(bookModel);
             if (id > 0)
             {
-                return RedirectToAction(nameof(AddNewBook), new { isSuccess = true});
+                return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId = id });
             }
             return View();
         }
