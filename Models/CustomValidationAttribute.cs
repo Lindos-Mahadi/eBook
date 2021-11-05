@@ -8,18 +8,18 @@ namespace eBook.Models
 {
     public class CustomValidationAttribute : ValidationAttribute
     {
-        //public MyCustomValidationAttribute(string text)
-        //{
-        //    Text = text;
-        //}
-        //public string Text { get; set; }
+        public CustomValidationAttribute(string text) 
+        {
+            Text = text;
+        }
+        public string Text { get; set; }
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             if (value != null)
             {
                 string bookName = value.ToString();
-                if (bookName.Contains("Text"))
+                if (bookName.Contains(Text))
                 {
                     return ValidationResult.Success;
                 }
