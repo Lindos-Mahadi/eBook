@@ -42,6 +42,18 @@ namespace eBook
 
             services.AddScoped<BookRepository, BookRepository>();
             services.AddScoped<LanguageRepository, LanguageRepository>();
+
+            // Uncomment this code to disable client side validations.
+
+            //#if DEBUG
+                //services.AddRazorPages().AddRazorRuntimeCompilation();
+
+
+                //    .AddViewOptions(option =>
+                //{
+                //    option.HtmlHelperOptions.ClientValidationEnabled = false;
+                //});
+            //#endif
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
