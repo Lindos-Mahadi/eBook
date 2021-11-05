@@ -10,8 +10,8 @@ using eBook.Data;
 namespace eBook.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211103062622_InitialBooksTabel")]
-    partial class InitialBooksTabel
+    [Migration("20211105043122_Language&BooksTable")]
+    partial class LanguageBooksTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,14 +37,11 @@ namespace eBook.Data.Migrations
                     b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Language")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("LanguageId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -52,9 +49,48 @@ namespace eBook.Data.Migrations
                     b.Property<int>("TotalPages")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("LanguageId");
+
                     b.ToTable("Books");
+                });
+
+            modelBuilder.Entity("eBook.Data.DomainModals.Language", b =>
+                {
+                    b.Property<int>("LanguageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LanguageId");
+
+                    b.ToTable("Language");
+                });
+
+            modelBuilder.Entity("eBook.Data.DomainModals.Books", b =>
+                {
+                    b.HasOne("eBook.Data.DomainModals.Language", "Language")
+                        .WithMany("Books")
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Language");
+                });
+
+            modelBuilder.Entity("eBook.Data.DomainModals.Language", b =>
+                {
+                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }

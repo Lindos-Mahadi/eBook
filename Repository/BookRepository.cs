@@ -26,9 +26,7 @@ namespace eBook.Repository
                 CreatedOn = DateTime.UtcNow,
                 Description = model.Description,
                 Title = model.Title,
-                Language = model.Language,
-                //LanguageEnum = model.LanguageEnum,
-                MultiLanguage = model.MultiLanguage,    //tarnary operator
+                LanguageId = model.LanguageId,
                 TotalPages = model.TotalPages.HasValue ? model.TotalPages.Value : 0,
                 UpdatedOn = DateTime.UtcNow
             };
@@ -41,26 +39,18 @@ namespace eBook.Repository
         }
         public async Task<List<BookModel>> GetAllBooks()
         {
-            var books = new List<BookModel>();
-            var allbooks = await _context.Books.ToListAsync();
-            if (allbooks?.Any() == true)
-            {
-                foreach (var book in allbooks)
-                {
-                    books.Add(new BookModel()
-                    {
-                        Author = book.Author,
-                        Category = book.Category,
-                        Description = book.Description,
-                        Id = book.Id,
-                        Language = book.Language,
-                        Title = book.Title,
-                        TotalPages = book.TotalPages
-                    });
-                }
-            }
-
-            return books;
+            return await _context.Books
+                   .Select(book => new BookModel()
+                   {
+                       Author = book.Author,
+                       Category = book.Category,
+                       Description = book.Description,
+                       Id = book.Id,
+                       LanguageId = book.LanguageId,
+                       Language = book.Language.Name,
+                       Title = book.Title,
+                       TotalPages = book.TotalPages
+                   }).ToListAsync();
         }
 
         public async Task<BookModel> GetBookById(int id)
@@ -69,18 +59,20 @@ namespace eBook.Repository
             var book = await _context.Books.FindAsync(id);
             if (book != null)
             {
-                var bookDetails = new BookModel()
-                {
-                    Author = book.Author,
-                    Category = book.Category,
-                    Description = book.Description,
-                    Id = book.Id,
-                    Language = book.Language,
-                    Title = book.Title,
-                    TotalPages = book.TotalPages
-                };
+                return await _context.Books.Where(x => x.Id == id)
+                 .Select(book => new BookModel()
+                 {
+                     Author = book.Author,
+                     Category = book.Category,
+                     Description = book.Description,
+                     Id = book.Id,
+                     LanguageId = book.LanguageId,
+                     Language = book.Language.Name,
+                     Title = book.Title,
+                     TotalPages = book.TotalPages
+                 }).FirstOrDefaultAsync();
 
-                return bookDetails;
+                //return bookDetails;
             }
 
             return null;
@@ -88,26 +80,8 @@ namespace eBook.Repository
 
         public List<BookModel> SearchBook(string title, string authorName)
         {
-            return DataSource().Where(x => x.Title.Contains(title) || x.Author.Contains(authorName)).ToList();
+            return null;
         }
 
-        private List<BookModel> DataSource()
-        {
-            return new List<BookModel>()
-            {
-                new BookModel(){Id =1, Title="MVC", Author = "lindos" , Description="This is the description for MVC", Category = "Programming", Language = "English", TotalPages = 134},
-                new BookModel(){Id =2, Title="Dot Net Core", Author = "lindos" , Description="This is the description for DotNet Core", Category = "Framework", Language = "Chinese", TotalPages = 567},
-                new BookModel(){Id =3, Title="C#", Author = "lindos" , Description="This is the description for C#", Category = "Developer", Language = "Hindi", TotalPages = 897},
-                new BookModel(){Id =4, Title="Java", Author = "lindos" , Description="This is the description for Java", Category = "Concept", Language = "English", TotalPages = 564},
-                new BookModel(){Id =5, Title="Php", Author = "lindos", Description="This is the description for PHP", Category = "Programming", Language = "English", TotalPages = 100},
-                new BookModel(){Id =6, Title="Azure", Author = "lindos" , Description="This is the description for Azure", Category = "DevOps", Language = "English", TotalPages = 800},
-                new BookModel(){Id =7, Title="Angular", Author = "lindos" , Description="This is the description for Angular", Category = "DevOps", Language = "English", TotalPages = 800},
-                new BookModel(){Id =8, Title="F#", Author = "lindos" , Description="This is the description for F#", Category = "Concept", Language = "English", TotalPages = 800},
-                new BookModel(){Id =9, Title="React", Author = "lindos" , Description="This is the description for React", Category = "DevOps", Language = "English", TotalPages = 800},
-                new BookModel(){Id =10, Title="Python", Author = "lindos", Description="This is the description for Python", Category = "Concept", Language = "English", TotalPages = 800},
-                new BookModel(){Id =11, Title="DevOps", Author = "lindos", Description="This is the description for DevOps", Category = "DevOps", Language = "English", TotalPages = 800},
-                new BookModel(){Id =12, Title="Networking", Author = "lindos", Description="This is the description for Networking", Category = "DevOps", Language = "English", TotalPages = 800},
-            };
-        }
     }
 }

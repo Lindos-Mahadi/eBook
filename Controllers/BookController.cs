@@ -12,10 +12,11 @@ namespace eBook.Controllers
     public class BookController : Controller
     {
         private readonly BookRepository _bookRepository = null;
-
-        public BookController(BookRepository bookRepository)
+        private readonly LanguageRepository _languageRepository = null;
+        public BookController(BookRepository bookRepository, LanguageRepository languageRepository)
         {
             _bookRepository = bookRepository;
+            _languageRepository = languageRepository;
         }
 
         [Route("all-book")]
@@ -26,7 +27,7 @@ namespace eBook.Controllers
             return View(allData);
         }
         [Route("book-details/{id}")]
-        public async Task<ActionResult> BookDetails(int id, string nameOfBook)
+        public async Task<ActionResult> BookDetails(int id)
         {
             var bookDetails = await _bookRepository.GetBookById(id);
             return View(bookDetails);
@@ -36,17 +37,11 @@ namespace eBook.Controllers
             return _bookRepository.SearchBook(bookName, authorName);
         }
         [HttpGet]
-        public ActionResult AddNewBook(bool isSuccess = false, int bookId = 0 )
+        public async Task<ActionResult> AddNewBook(bool isSuccess = false, int bookId = 0 )
         {
-            ViewBag.Language = new List<SelectListItem>()
-            {
-                new SelectListItem(){Text = "Hindi", Value = "1"},
-                new SelectListItem(){Text = "English", Value = "2"},
-                new SelectListItem(){Text = "Dutch", Value = "3"},
-                new SelectListItem(){Text = "Tamil", Value = "4"},
-                new SelectListItem(){Text = "Urdu", Value = "5"},
-                new SelectListItem(){Text = "Chinese", Value = "6"},
-            };
+            var model = new BookModel();
+
+            ViewBag.Language = new SelectList(await _languageRepository.GetLanguages(), "LanguageId", "Name");
 
             ViewBag.IsSuccess = isSuccess;
             ViewBag.BookId = bookId;
@@ -64,26 +59,9 @@ namespace eBook.Controllers
                 }
             }
 
-            ViewBag.Language = new List<SelectListItem>()
-            {
-                new SelectListItem(){Text = "Hindi", Value = "1"},
-                new SelectListItem(){Text = "English", Value = "2"},
-                new SelectListItem(){Text = "Dutch", Value = "3"},
-                new SelectListItem(){Text = "Tamil", Value = "4"},
-                new SelectListItem(){Text = "Urdu", Value = "5"},
-                new SelectListItem(){Text = "Chinese", Value = "6"},
-            };
+            ViewBag.Language = new SelectList(await _languageRepository.GetLanguages(), "LanguageId", "Name");
 
             return View();
-        }
-        private List<LanguageModel> GetLanguage()
-        {
-            return new List<LanguageModel>()
-            {
-                new LanguageModel(){ Id = "Hindi", Text = "Hindi"},
-                new LanguageModel(){ Id = "English", Text = "English"},
-                new LanguageModel(){ Id = "English", Text = "Dutch"},
-            };
         }
     }
 }
