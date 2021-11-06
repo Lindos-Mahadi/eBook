@@ -1,4 +1,4 @@
-﻿@model eBook.Data.DomainModals.Books
+﻿@model eBook.Models.BookModel
 @{
     ViewData["Title"] = "Add New Book";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -25,13 +25,7 @@
         </div>
     </div>
 
-    <form method="post"
-          data-ajax="true"
-          data-ajax-complete="formComplete"
-          data-ajax-success="formSuccess" 
-          ata-ajax-failure="formFailure"
-          data-ajax-loading="#formLoader"
-          asp-action="AddNewBook" asp-controller="Book">
+    <form method="post" enctype="multipart/form-data" asp-action="AddNewBook" asp-controller="Book">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
         <div class="form-group">
@@ -64,28 +58,17 @@
             <label asp-for="TotalPages" class="control-label"></label>
             <input asp-for="TotalPages" class="form-control" />
             <span asp-validation-for="TotalPages" class="text-danger"></span>
-
+        </div>
+        <div class="form-group">
+            <label asp-for="CoverPhoto" class="control-label"></label>
+            <div class="custom-file">
+                <input asp-for="CoverPhoto" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+            <span asp-validation-for="CoverPhoto" class="text-danger"></span>
         </div>
         <div class="form-group">
             <input type="submit" value="Add book" class="btn btn-primary" />
         </div>
     </form>
 </div>
-
-@section scripts {
-    <script>
-        function formComplete(data) {
-            alert("I am from complete");
-            console.log(data);
-        }
-        function formSuccess(data) {
-            alert("I am from success");
-            console.log(data);
-        }
-        function formFailure(data) {
-            alert("I am from failure");
-            console.log(data);
-        }
-    </script>
-
-} 
