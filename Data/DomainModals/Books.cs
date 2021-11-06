@@ -21,6 +21,7 @@ namespace eBook.Data.DomainModals
         public Language Language { get; set; }
 
         public string CoverImageUrl { get; set; }
+        public string BookPdfUrl { get; set; }
 
         public int TotalPages { get; set; }
         public DateTime? CreatedOn { get; set; }

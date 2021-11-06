@@ -30,5 +30,10 @@ namespace eBook.Models
         [Required]
         public IFormFile CoverPhoto { get; set; }
         public string CoverImageUrl { get; set; }
+
+        [Display(Name = "Upload your book in pdf format")]
+        [Required]
+        public IFormFile BookPdf { get; set; }
+        public string BookPdfUrl { get; set; }
     }
 }

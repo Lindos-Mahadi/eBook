@@ -29,7 +29,8 @@ namespace eBook.Repository
                 LanguageId = model.LanguageId,
                 TotalPages = model.TotalPages.HasValue ? model.TotalPages.Value : 0,
                 UpdatedOn = DateTime.UtcNow,
-                CoverImageUrl = model.CoverImageUrl
+                CoverImageUrl = model.CoverImageUrl,
+                BookPdfUrl = model.BookPdfUrl
             };
 
             await _context.Books.AddAsync(newBook);
@@ -72,7 +73,8 @@ namespace eBook.Repository
                      Language = book.Language.Name,
                      Title = book.Title,
                      TotalPages = book.TotalPages,
-                     CoverImageUrl = book.CoverImageUrl
+                     CoverImageUrl = book.CoverImageUrl,
+                     BookPdfUrl = book.BookPdfUrl
                  }).FirstOrDefaultAsync();
 
                 //return bookDetails;

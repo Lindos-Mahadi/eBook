@@ -1,6 +1,7 @@
 ﻿using eBook.Models;
 using eBook.Repository;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -70,6 +71,12 @@ namespace eBook.Controllers
                     await bookModel.CoverPhoto.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
                 }
 
+                if (bookModel.BookPdf != null)
+                {
+                    string folder = "books/pdf/";
+                    bookModel.BookPdfUrl = await UploadImage(folder, bookModel.BookPdf);
+                }
+
                 int id = await _bookRepository.AddNewBook(bookModel);
                 if (id > 0)
                 {
@@ -80,6 +87,17 @@ namespace eBook.Controllers
             ViewBag.Language = new SelectList(await _languageRepository.GetLanguages(), "LanguageId", "Name");
 
             return View();
+        }
+
+        private async Task<string> UploadImage(string folderPath, IFormFile file)
+        {
+            folderPath += Guid.NewGuid().ToString() + "_" + file.FileName;
+
+            string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folderPath);
+
+            await file.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+
+            return "/" + folderPath;
         }
     }
 }
