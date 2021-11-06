@@ -20,8 +20,8 @@ namespace eBook.Data.DomainModals
         public int LanguageId { get; set; }
         public Language Language { get; set; }
 
-        //public string CoverImageUrl { get; set; }
-        
+        public string CoverImageUrl { get; set; }
+
         public int TotalPages { get; set; }
         public DateTime? CreatedOn { get; set; }
         public DateTime? UpdatedOn { get; set; }
