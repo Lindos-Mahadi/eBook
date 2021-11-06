@@ -61,7 +61,10 @@ namespace eBook.Controllers
                 if (bookModel.CoverPhoto != null)
                 {
                     string folder = "books/cover/";
-                    folder += bookModel.CoverPhoto.FileName + Guid.NewGuid().ToString();
+                    folder += Guid.NewGuid().ToString() + "_" + bookModel.CoverPhoto.FileName;
+
+                    bookModel.CoverImageUrl = "/" + folder;
+
                     string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
 
                     await bookModel.CoverPhoto.CopyToAsync(new FileStream(serverFolder, FileMode.Create));

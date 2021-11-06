@@ -1,6 +1,5 @@
 ﻿<!--------ALL MODELS BINDING DEPENDENCIES COMING FROM _VIEWIMPORTS.CSHTML------->
-@*@model IEnumerable<eBook.Models.BookModel>*@
-
+@model IEnumerable<BookModel>
 @{
     ViewData["Title"] = "All Books";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,7 +12,8 @@
     {
         <div class="col-md-3">
             <div class="card mb-4 shadow-sm">
-                <img src="https://picsum.photos/seed/picsum/200/300" style="height:200px;" alt="" />
+                @*<img src="https://picsum.photos/seed/picsum/200/300" style="height:200px;" alt="" />*@
+                <img src="@book.CoverImageUrl" class="img-thumbnail" style="height:200px;" alt=""/>
                 <div class="card-body">
                     <h3 class="card-title">@book.Title</h3>
                     <p class="card-text">@book.Description</p>
@@ -26,7 +26,8 @@
                     </div>
                 </div>
             </div>
-        </div>}
+        </div>
+    }
 
 
 </div>
