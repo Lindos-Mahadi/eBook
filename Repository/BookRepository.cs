@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace eBook.Repository
 {
-    public class BookRepository
+    public class BookRepository : IBookRepository
     {
         private readonly ApplicationDbContext _context = null;
 
@@ -83,7 +83,7 @@ namespace eBook.Repository
             return null;
         }
 
-        public async Task<List<BookModel>> GetTopBooksAsync(int count )
+        public async Task<List<BookModel>> GetTopBooksAsync(int count)
         {
             return await _context.Books
                   .Select(book => new BookModel()
@@ -97,7 +97,7 @@ namespace eBook.Repository
                       Title = book.Title,
                       TotalPages = book.TotalPages,
                       CoverImageUrl = book.CoverImageUrl
-                  }).Take(count ).ToListAsync();
+                  }).Take(count).ToListAsync();
         }
 
         public List<BookModel> SearchBook(string title, string authorName)

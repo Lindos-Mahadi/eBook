@@ -14,11 +14,11 @@ namespace eBook.Controllers
 {
     public class BookController : Controller
     {
-        private readonly BookRepository _bookRepository = null;
-        private readonly LanguageRepository _languageRepository = null;
+        private readonly IBookRepository _bookRepository = null;
+        private readonly ILanguageRepository _languageRepository = null;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        public BookController(BookRepository bookRepository, 
-            LanguageRepository languageRepository, 
+        public BookController(IBookRepository bookRepository, 
+            ILanguageRepository languageRepository, 
             IWebHostEnvironment webHostEnvironment)
         {
             _bookRepository = bookRepository;
@@ -33,7 +33,7 @@ namespace eBook.Controllers
 
             return View(allData);
         }
-        [Route("book-details/{{id:int:min(1)}")]
+        [Route("book-details/{id:int:min(1)}")]
         public async Task<ActionResult> BookDetails(int id)
         {
             var bookDetails = await _bookRepository.GetBookById(id);

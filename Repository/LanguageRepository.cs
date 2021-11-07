@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace eBook.Repository
 {
-    public class LanguageRepository
+    public class LanguageRepository : ILanguageRepository
     {
         private readonly ApplicationDbContext _context = null;
 

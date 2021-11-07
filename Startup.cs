@@ -40,8 +40,10 @@ namespace eBook
             //services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddControllersWithViews();
 
-            services.AddScoped<BookRepository, BookRepository>();
-            services.AddScoped<LanguageRepository, LanguageRepository>();
+            // Depency Injection 
+
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<ILanguageRepository, LanguageRepository>();
 
             // Uncomment this code to disable client side validations.
 
