@@ -11,7 +11,7 @@
                 <a asp-action="BookDetails" asp-controller="book" asp-route-id="@Model.Id"
                    class="btn btn-sm btn-outline-secondary">View details</a>
             </div>
-            <small class="text-muted">@(string.IsNullOrEmpty(Model.Author) ? "NA": Model.Title )</small>
+            <small class="text-muted">@(string.IsNullOrEmpty(Model.Author) ? "NA": Model.Author )</small>
         </div>
     </div>
 </div>

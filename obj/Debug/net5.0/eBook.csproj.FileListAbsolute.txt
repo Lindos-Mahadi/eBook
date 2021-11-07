@@ -440,3 +440,4 @@ F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.dll
 F:\DotNetCore\eBook\obj\Debug\net5.0\ref\eBook.dll
 F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.pdb
 F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.genruntimeconfig.cache
+F:\DotNetCore\eBook\obj\Debug\net5.0\Razor\Views\Shared\Components\TopBooks\Default.cshtml.g.cs
