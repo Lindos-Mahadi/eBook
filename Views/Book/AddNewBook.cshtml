@@ -1,4 +1,5 @@
-﻿@model eBook.Models.BookModel
+﻿@inject eBook.Repository.ILanguageRepository _languageRepository
+@model eBook.Models.BookModel
 @{
     ViewData["Title"] = "Add New Book";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -19,8 +20,8 @@
     }
 
     <div class="d-flex justify-content-center">
-        <div class="spinner-border" role="status" 
-             id="formLoader" style="display:none;" >
+        <div class="spinner-border" role="status"
+             id="formLoader" style="display:none;">
             <span class="sr-only">Loading...</span>
         </div>
     </div>
@@ -36,7 +37,7 @@
 
         <div class="form-group">
             <label asp-for="LanguageId" class="control-label"></label>
-            <select asp-for="LanguageId" class="form-control" asp-items="ViewBag.Language">
+            <select asp-for="LanguageId" class="form-control" asp-items="(await _languageRepository.GetLanguages()).Select(x=> new SelectListItem() { Text = x.Name, Value = x.LanguageId.ToString()})">
                 <option value="">Please choose book language</option>
             </select>
             <span asp-validation-for="LanguageId" class="text-danger"></span>

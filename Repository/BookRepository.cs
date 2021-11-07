@@ -105,5 +105,10 @@ namespace eBook.Repository
             return null;
         }
 
+        public string GetAppName()
+        {
+            return "eBookStore";
+        }
+
     }
 }
