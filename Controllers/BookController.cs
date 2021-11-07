@@ -33,7 +33,7 @@ namespace eBook.Controllers
 
             return View(allData);
         }
-        [Route("book-details/{id}")]
+        [Route("book-details/{{id:int:min(1)}")]
         public async Task<ActionResult> BookDetails(int id)
         {
             var bookDetails = await _bookRepository.GetBookById(id);
