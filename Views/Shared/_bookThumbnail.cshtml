@@ -2,16 +2,16 @@
 
 <div class="card mb-4 shadow-sm">
     @*<img src="https://picsum.photos/seed/picsum/200/300" style="height:200px;" alt="" />*@
-    <img src="@Model.CoverImageUrl" class="img-thumbnail" style="height:200px;" alt="" />
+    <img src="@(string.IsNullOrEmpty(Model.CoverImageUrl) ? "/images/noimage.jpg" : Model.CoverImageUrl)" class="img-thumbnail" style="height:200px;" alt="" />
     <div class="card-body">
-        <h3 class="card-title">@(string.IsNullOrEmpty(Model.Title) ? "Name is not available": Model.Title )"</h3>
-        <p class="card-text">@(string.IsNullOrEmpty(Model.Description) ? "Name is not available": Model.Description )"</p>
+        <h3 class="card-title">@(string.IsNullOrEmpty(Model.Title) ? "Name is not available": Model.Title )</h3>
+        <p class="card-text">@(string.IsNullOrEmpty(Model.Description) ? "Name is not available": Model.Description )</p>
         <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
                 <a asp-action="BookDetails" asp-controller="book" asp-route-id="@Model.Id"
                    class="btn btn-sm btn-outline-secondary">View details</a>
             </div>
-            <small class="text-muted">@(string.IsNullOrEmpty(Model.Author) ? "Name is not available": Model.Title )"</small>
+            <small class="text-muted">@(string.IsNullOrEmpty(Model.Author) ? "NA": Model.Title )</small>
         </div>
     </div>
 </div>
