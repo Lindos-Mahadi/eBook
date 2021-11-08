@@ -46,6 +46,7 @@ namespace eBook
 
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<ILanguageRepository, LanguageRepository>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
 
             // Uncomment this code to disable client side validations.
 
