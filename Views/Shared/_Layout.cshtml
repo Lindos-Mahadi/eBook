@@ -22,14 +22,14 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav mr-auto">
+                    @*<ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="SignUp">Sign Up</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                         </li>
-                    </ul>
+                    </ul>*@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="GetAllBooks">All Book</a>
@@ -38,7 +38,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="AddNewBook">Add New Book</a>
                         </li>
                     </ul>
-                    @*<partial name="_LoginPartial" />*@
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
