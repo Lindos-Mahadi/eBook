@@ -35,10 +35,17 @@ namespace eBook
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            //services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+            //services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.ConfigureApplicationCookie(config =>
+            {
+                config.LoginPath = "/login";
+            });
+
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -99,6 +106,7 @@ namespace eBook
                 endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
                 //endpoints.MapRazorPages();
 
             });

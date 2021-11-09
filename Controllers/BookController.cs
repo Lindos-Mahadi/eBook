@@ -1,5 +1,6 @@
 ﻿using eBook.Models;
 using eBook.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace eBook.Controllers
 {
+    [Authorize]
     public class BookController : Controller
     {
         private readonly IBookRepository _bookRepository = null;
@@ -26,6 +28,7 @@ namespace eBook.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
+        [AllowAnonymous]
         [Route("all-book")]
         public async Task<IActionResult> GetAllBooks()
         {
