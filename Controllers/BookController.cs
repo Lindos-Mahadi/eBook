@@ -19,6 +19,7 @@ namespace eBook.Controllers
         private readonly IBookRepository _bookRepository = null;
         private readonly ILanguageRepository _languageRepository = null;
         private readonly IWebHostEnvironment _webHostEnvironment;
+
         public BookController(IBookRepository bookRepository, 
             ILanguageRepository languageRepository, 
             IWebHostEnvironment webHostEnvironment)
@@ -32,6 +33,7 @@ namespace eBook.Controllers
         [Route("all-book")]
         public async Task<IActionResult> GetAllBooks()
         {
+
             var allData = await _bookRepository.GetAllBooks();
 
             return View(allData);

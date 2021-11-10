@@ -1,4 +1,5 @@
 ﻿using eBook.Models;
+using eBook.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,14 +13,18 @@ namespace eBook.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUserService _userService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, UserService userService)
         {
             _logger = logger;
+            _userService = userService;
         }
 
         public IActionResult Index()
         {
+            var userId = _userService.GetUserId();
+            var isLoggedIn = _userService.IsAuthenticated();
             return View();
         }
 

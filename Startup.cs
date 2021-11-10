@@ -69,17 +69,18 @@ namespace eBook
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<ILanguageRepository, LanguageRepository>();
             services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<IUserService, UserService>();
 
             // Uncomment this code to disable client side validations.
 
             //#if DEBUG
-                //services.AddRazorPages().AddRazorRuntimeCompilation();
+            //services.AddRazorPages().AddRazorRuntimeCompilation();
 
 
-                //    .AddViewOptions(option =>
-                //{
-                //    option.HtmlHelperOptions.ClientValidationEnabled = false;
-                //});
+            //    .AddViewOptions(option =>
+            //{
+            //    option.HtmlHelperOptions.ClientValidationEnabled = false;
+            //});
             //#endif
         }
 
