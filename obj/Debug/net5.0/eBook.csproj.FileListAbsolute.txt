@@ -420,6 +420,7 @@ F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.TagHelpers.input.cache
 F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.TagHelpers.output.cache
 F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.RazorCoreGenerate.cache
 F:\DotNetCore\eBook\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+F:\DotNetCore\eBook\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 F:\DotNetCore\eBook\obj\Debug\net5.0\Razor\Views\Account\SignUp.cshtml.g.cs
 F:\DotNetCore\eBook\obj\Debug\net5.0\Razor\Views\Book\AddNewBook.cshtml.g.cs
 F:\DotNetCore\eBook\obj\Debug\net5.0\Razor\Views\Book\BookDetails.cshtml.g.cs
@@ -442,4 +443,4 @@ F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.dll
 F:\DotNetCore\eBook\obj\Debug\net5.0\ref\eBook.dll
 F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.pdb
 F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.genruntimeconfig.cache
-F:\DotNetCore\eBook\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+F:\DotNetCore\eBook\obj\Debug\net5.0\Razor\Views\Account\ChangePassword.cshtml.g.cs

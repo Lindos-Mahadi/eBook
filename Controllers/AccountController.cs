@@ -1,5 +1,6 @@
 ﻿using eBook.Models;
 using eBook.Repository;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace eBook.Controllers
     public class AccountController : Controller
     {
         private readonly IAccountRepository _accountRepository;
+        private readonly IUserService _userService;
 
         public AccountController(IAccountRepository accountRepository)
         {
@@ -18,6 +20,7 @@ namespace eBook.Controllers
         }
         public IActionResult SignUp()
         {
+            
             return View();
         }
         [HttpPost]
@@ -74,6 +77,34 @@ namespace eBook.Controllers
         {
             await _accountRepository.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(ChangePasswordModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _accountRepository.ChangePasswordAsync(model);
+                if (result.Succeeded)
+                {
+                    ViewBag.IsSuccess = true;
+                    ModelState.Clear();
+                    return View();
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+            }
+            return View(model);
         }
     }
 }

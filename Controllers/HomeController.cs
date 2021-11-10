@@ -15,16 +15,14 @@ namespace eBook.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IUserService _userService;
 
-        public HomeController(ILogger<HomeController> logger, UserService userService)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _userService = userService;
+
         }
 
         public IActionResult Index()
         {
-            var userId = _userService.GetUserId();
-            var isLoggedIn = _userService.IsAuthenticated();
             return View();
         }
 
