@@ -1,4 +1,5 @@
 using eBook.Data;
+using eBook.Helpers;
 using eBook.Models;
 using eBook.Repository;
 using Microsoft.AspNetCore.Builder;
@@ -37,6 +38,9 @@ namespace eBook
 
             //services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>,
+                ApplicationUserClaimsPrincipalFactory>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
