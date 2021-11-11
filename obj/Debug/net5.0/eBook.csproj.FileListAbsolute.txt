@@ -405,6 +405,7 @@ F:\DotNetCore\eBook\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-c
 F:\DotNetCore\eBook\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 F:\DotNetCore\eBook\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 F:\DotNetCore\eBook\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.csproj.AssemblyReference.cache
 F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.GeneratedMSBuildEditorConfig.editorconfig
 F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.AssemblyInfoInputs.cache
 F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.AssemblyInfo.cs
@@ -420,6 +421,7 @@ F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.TagHelpers.input.cache
 F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.TagHelpers.output.cache
 F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.RazorCoreGenerate.cache
 F:\DotNetCore\eBook\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+F:\DotNetCore\eBook\obj\Debug\net5.0\Razor\Views\Account\ChangePassword.cshtml.g.cs
 F:\DotNetCore\eBook\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 F:\DotNetCore\eBook\obj\Debug\net5.0\Razor\Views\Account\SignUp.cshtml.g.cs
 F:\DotNetCore\eBook\obj\Debug\net5.0\Razor\Views\Book\AddNewBook.cshtml.g.cs
@@ -443,4 +445,3 @@ F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.dll
 F:\DotNetCore\eBook\obj\Debug\net5.0\ref\eBook.dll
 F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.pdb
 F:\DotNetCore\eBook\obj\Debug\net5.0\eBook.genruntimeconfig.cache
-F:\DotNetCore\eBook\obj\Debug\net5.0\Razor\Views\Account\ChangePassword.cshtml.g.cs
